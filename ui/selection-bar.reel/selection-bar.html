@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="selection-bar.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "selection": {"<-": "@repetition.selection[0]"}
+            }
+        },
+
+        "repetition": {
+            "prototype": "montage/ui/repetition.reel",
+            "properties": {
+                "element": {"#": "repetition"}
+            }, 
+            "bindings": {
+                "content": {"<-": "@owner.content"},
+                "isSelectionEnabled": {"<-": "@owner.selectionEnabled"}
+            }
+        },
+
+        "selectionButton": {
+            "prototype": "ui/selection-button.reel",
+            "properties": {
+                "element": {"#": "selectionButton"}
+            },
+            "bindings": {
+                "title":{"<-": "@repetition:iteration.object.name"},
+                "icon": {"<-": "@repetition:iteration.object.icon"},
+                "classList.has('selected')": {"<-": "@owner.computerPick == @selectionButton.title"}
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="SelectionBar">
+        <div data-montage-id="repetition">
+            <div data-montage-id="selectionButton"></div>
+        </div>
+    </div>
+</body>
+</html>

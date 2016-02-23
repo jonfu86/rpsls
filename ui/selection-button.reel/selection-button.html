@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="selection-button.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"},
+                "_SVGUseElement" : {"#" : "buttonIcon"}
+            },
+            "bindings": {
+				"iconAttribute" : {"<-" : "@owner.icon"}
+            }
+        },
+
+        "buttonTitle": {
+        	"prototype": "montage/ui/text.reel",
+        	"properties": {
+        		"element": {"#" : "buttonTitle"}
+        	},
+        	"bindings": {
+        		"value": {"<-": "@owner.title"}
+        	}
+        }
+    }
+    </script>
+</head>
+<body>
+    <button data-montage-id="owner" class="SelectionButton selectionAction">
+    	<div class="selectionAction-image">
+    		<svg><use data-montage-id="buttonIcon"></use></svg>
+    	</div>
+		<span data-montage-id="buttonTitle" class="selectionAction-title"></span>
+    </button>
+</body>
+</html>
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Main</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "main"}
+                },
+                "bindings": {
+                    "selection": {"<-": "@playerBar.selection.name"}      
+                }
+            },
+
+            "svg-icons": {
+                "prototype": "ui/svg-icons.reel",
+                "properties": {
+                    "element": {"#": "svg-icons"}
+                }
+            },
+
+            "title": {
+                "prototype": "digit/ui/text.reel",
+                "properties": {
+                    "element": {"#": "title"},
+                    "value": "Rock, Paper, Scissors, Lizard, Spock"
+                }
+            },
+
+            "playerText": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "playerText"},
+                    "value": "Player"
+                }
+            },
+
+            "playerBar": {
+                "prototype": "ui/selection-bar.reel",
+                "properties": {
+                    "element": {"#": "player-bar"},
+                    "enabled": true,
+                    "selectionEnabled": true
+                }
+            },
+
+            "computerBar": {
+                "prototype": "ui/selection-bar.reel",
+                "properties": {
+                    "element": {"#": "computer-bar"},
+                    "selectionEnabled": false
+                },
+                "bindings": {
+                    "computerPick": {"<-": "@playerBar.computer"}
+                }
+            },
+
+            "computerText": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "computerText"}
+                },
+                "bindings": {
+                    "value": {"<-": "@playerBar.computer"}
+                }
+            },
+
+            "actionPanel": {
+                "prototype": "ui/action-panel.reel",
+                "properties": {
+                    "element": {"#": "action-panel"}
+                },
+                "bindings": {
+                    "result": {"<-": "@playerBar.message"}
+                }            
+            }
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main" data-montage-skin="light" class="Main">
+        <div data-montage-id="svg-icons" class="svg-icons"></div>
+        <div data-montage-id="title" class="title"></div>
+        <div data-montage-id="playerText" class="playerText"></div>
+        <div data-montage-id="player-bar" class="player-bar"></div>
+        <div data-montage-id="action-panel" class="action-panel"></div>
+        <div data-montage-id="computer-bar" class="computer-bar"></div>
+        <div data-montage-id="computerText" class="computerText"></div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="action-panel.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            }
+        },
+
+        "result": {
+            "prototype": "digit/ui/text.reel",
+            "properties": {
+                "element": {"#": "result"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.result"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="ActionPanel">
+        <div data-montage-id="result" class="result"></div>
+    </div>
+</body>
+</html>

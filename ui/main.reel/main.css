@@ -1,0 +1,63 @@
+.Main {}
+
+.title{
+	/*position: absolute;*/
+	/*top: 0;*/
+	/*left: 50%;*/
+	/*height:10%;
+	transform: translateX(-50%);*/
+	margin:2% auto;
+	text-align:center;
+	font-size: 36px;
+	line-height: 52px;
+	font-weight: 400;
+	font-family: 'Roboto';
+	-webkit-font-smoothing: antialiased;
+}
+
+.player-bar, .computer-bar{
+	margin:0 auto;
+	/*max-width:50%;*/
+	text-align:center;
+	/*position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translateX(-50%);*/
+}
+
+.computer-bar{
+/*	margin:0 auto;
+	text-align:center;*/
+	/*position: absolute;
+	bottom: 30%;
+	left: 50%;
+	transform: translateX(-50%);*/
+}
+
+.action-panel{
+	height:100px;
+	margin:2% auto;
+	text-align:center;
+}
+
+.playerText{
+	color:blue;
+}
+
+.computerText{
+	color:red;
+}
+
+.playerText, .computerText{
+	margin:0 auto;
+	text-align:center;
+	font-size: 36px;
+	line-height: 52px;
+	font-weight: 400;
+	font-family: 'Roboto';
+	-webkit-font-smoothing: antialiased;
+}
+
+.svg-icons{
+	display:none;
+}
