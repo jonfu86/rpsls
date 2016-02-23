@@ -12,6 +12,12 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         value: function Main() {
             this.super();
         }
+    },
+
+    handleResetButtonAction: {
+        value: function () {
+            this.winCount = 0;
+        }
     }
 
 

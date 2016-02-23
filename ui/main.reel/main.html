@@ -13,7 +13,8 @@
                     "element": {"#": "main"}
                 },
                 "bindings": {
-                    "selection": {"<-": "@playerBar.selection.name"}      
+                    "selection": {"<-": "@playerBar.selection.name"},
+                    "winCount": {"<->": "@playerBar.winCount"}   
                 }
             },
 
@@ -32,6 +33,30 @@
                 }
             },
 
+            "counter": {
+                "prototype": "digit/ui/badge.reel",
+                "properties": {
+                    "element": {"#": "counter"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.winCount"}
+                }
+            },
+
+            "resetButton": {
+                "prototype": "digit/ui/button.reel",
+                "properties": {
+                    "element": {"#": "resetButton"},
+                    "label": "Reset Counter"
+                },
+                "listeners": [
+                    {
+                        "type": "action",
+                        "listener": {"@": "owner"}
+                    }
+                ]
+            },
+
             "playerText": {
                 "prototype": "montage/ui/text.reel",
                 "properties": {
@@ -44,16 +69,14 @@
                 "prototype": "ui/selection-bar.reel",
                 "properties": {
                     "element": {"#": "player-bar"},
-                    "enabled": true,
-                    "selectionEnabled": true
+                    "enabled": true
                 }
             },
 
             "computerBar": {
                 "prototype": "ui/selection-bar.reel",
                 "properties": {
-                    "element": {"#": "computer-bar"},
-                    "selectionEnabled": false
+                    "element": {"#": "computer-bar"}
                 },
                 "bindings": {
                     "computerPick": {"<-": "@playerBar.computer"}
@@ -86,6 +109,10 @@
     <div data-montage-id="main" data-montage-skin="light" class="Main">
         <div data-montage-id="svg-icons" class="svg-icons"></div>
         <div data-montage-id="title" class="title"></div>
+        <div class="count-box">
+            <span data-montage-id="counter" class="counter"></span>wins
+            <div data-montage-id="resetButton" class="resetButton"></div>
+        </div>
         <div data-montage-id="playerText" class="playerText"></div>
         <div data-montage-id="player-bar" class="player-bar"></div>
         <div data-montage-id="action-panel" class="action-panel"></div>

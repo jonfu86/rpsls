@@ -24,16 +24,19 @@ exports.SelectionBar = Component.specialize(/** @lends SelectionBar# */ {
         ]
     },
 
-    selection: {
-        set: function(value) {
-            if (value) {
-                var pick = value.name,
+    winCount: {
+        value: 0
+    },
+
+    handleSelectionButtonAction: {
+        value: function (event) {
+            if (this.enabled){
+                var pick = event.target.title,
                     random = Math.floor(Math.random() * (4 - 0)) + 0,
                     computer = this.content[random].name,
                     message;
 
                 switch (pick) {
-
                     case "Rock":
                         if (computer == "Rock") {
                             message = "Rock vs Rock! Tie!";
@@ -41,8 +44,10 @@ exports.SelectionBar = Component.specialize(/** @lends SelectionBar# */ {
                             message = "Paper covers Rock! You Lose!";
                         } else if (computer == "Scissors") {
                             message = "(and as it always has) Rock crushes scissors! You Win!";
+                            this.winCount++;
                         } else if (computer == "Lizard") {
                             message = "Rock crushes Lizard! You Win!";
+                            this.winCount++;
                         } else if (computer == "Spock") {
                             message = "Spock vaporizes Rock! You Lose!";
                         } else {
@@ -53,6 +58,7 @@ exports.SelectionBar = Component.specialize(/** @lends SelectionBar# */ {
                     case "Paper":
                         if (computer == "Rock") {
                             message = "Paper covers Rock! You Win!";
+                            this.winCount++;
                         } else if (computer == "Paper") {
                             message = "Paper vs Paper! Tie!";
                         } else if (computer == "Scissors") {
@@ -61,6 +67,7 @@ exports.SelectionBar = Component.specialize(/** @lends SelectionBar# */ {
                             message = "Lizard eats Paper! You Lose!";
                         } else if (computer == "Spock") {
                             message = "Paper disproves Spock! You Win!";
+                            this.winCount++;
                         } else {
                             message = "There was an error!";
                         }
@@ -71,10 +78,12 @@ exports.SelectionBar = Component.specialize(/** @lends SelectionBar# */ {
                             message = "(and as it always has) Rock crushes scissors! You Lose!";
                         } else if (computer == "Paper") {
                             message = "Scissors cuts Paper! You Win!";
+                            this.winCount++;
                         } else if (computer == "Scissors") {
                             message = "Scissors vs Scissors! Tie!";
                         } else if (computer == "Lizard") {
                             message = "Scissors decapitates Lizard! You Win!";
+                            this.winCount++;
                         } else if (computer == "Spock") {
                             message = "Spock smashes Scissors! You Lose!";
                         } else {
@@ -87,12 +96,14 @@ exports.SelectionBar = Component.specialize(/** @lends SelectionBar# */ {
                             message = "Rock crushes Lizard! You Lose!";
                         } else if (computer == "Paper") {
                             message = "Lizard eats Paper! You Win!";
+                            this.winCount++;
                         } else if (computer == "Scissors") {
                             message = "Scissors decapitates Lizard! You Lose!";
                         } else if (computer == "Lizard") {
                             message = "Lizard vs Lizard! Tie!";
                         } else if (computer == "Spock") {
                             message = "Lizard poisons Spock! You Win!";
+                            this.winCount++;
                         } else {
                             message = "There was an error!";
                         }
@@ -101,10 +112,12 @@ exports.SelectionBar = Component.specialize(/** @lends SelectionBar# */ {
                     case "Spock":
                         if (computer == "Rock") {
                             message = "Spock vaporizes Rock! You Win!";
+                            this.winCount++;
                         } else if (computer == "Paper") {
                             message = "Paper disproves Spock! You Lose!";
                         } else if (computer == "Scissors") {
                             message = "Spock smashes Scissors! You Win!";
+                            this.winCount++;
                         } else if (computer == "Lizard") {
                             message = "Lizard poisons Spock! You Lose!";
                         } else if (computer == "Spock") {
@@ -114,22 +127,11 @@ exports.SelectionBar = Component.specialize(/** @lends SelectionBar# */ {
                         }
                         break;
                 }
+                this.pick = pick;
                 this.message = message;
                 this.computer = computer;
-                
-                console.log(this.templateObjects.repetition.selection);
-                var selectionObj = this.templateObjects.repetition.selection;
-                selectionObj.addEventListener("click", this._resetSelection(selectionObj));
 
-               
             }
-        }
-    },
-
-    _resetSelection: {
-        value: function (selection) {
-            this.templateObjects.repetition.selection.clear();
-            this.templateObjects.repetition.selection = selection;
         }
     }
 

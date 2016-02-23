@@ -9,9 +9,12 @@
             "properties": {
                 "element": {"#": "owner"}
             },
-            "bindings": {
-                "selection": {"<-": "@repetition.selection[0]"}
-            }
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
         },
 
         "repetition": {
@@ -20,8 +23,7 @@
                 "element": {"#": "repetition"}
             }, 
             "bindings": {
-                "content": {"<-": "@owner.content"},
-                "isSelectionEnabled": {"<-": "@owner.selectionEnabled"}
+                "content": {"<-": "@owner.content"}
             }
         },
 
@@ -33,7 +35,7 @@
             "bindings": {
                 "title":{"<-": "@repetition:iteration.object.name"},
                 "icon": {"<-": "@repetition:iteration.object.icon"},
-                "classList.has('selected')": {"<-": "@owner.computerPick == @selectionButton.title"}
+                "classList.has('selected')": {"<-": "@owner.computerPick == @selectionButton.title || @owner.pick == @selectionButton.title"}
             }
         }
 
