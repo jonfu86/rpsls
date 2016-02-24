@@ -28,13 +28,23 @@ exports.SelectionBar = Component.specialize(/** @lends SelectionBar# */ {
         value: 0
     },
 
+    totalCount: {
+        value: 0
+    },
+
+    winPercent: {
+        value: 0
+    },
+
     handleSelectionButtonAction: {
         value: function (event) {
             if (this.enabled){
                 var pick = event.target.title,
-                    random = Math.floor(Math.random() * (4 - 0)) + 0,
+                    random = Math.floor(Math.random() * (5)),
                     computer = this.content[random].name,
                     message;
+
+                this.totalCount++;
 
                 switch (pick) {
                     case "Rock":
@@ -130,7 +140,7 @@ exports.SelectionBar = Component.specialize(/** @lends SelectionBar# */ {
                 this.pick = pick;
                 this.message = message;
                 this.computer = computer;
-
+                this.winPercent = Math.floor((this.winCount/this.totalCount) * 100);
             }
         }
     }

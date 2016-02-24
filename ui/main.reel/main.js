@@ -17,8 +17,11 @@ exports.Main = Component.specialize(/** @lends Main# */ {
     handleResetButtonAction: {
         value: function () {
             this.winCount = 0;
+            this.totalCount = 0;
+            this.winPercent = 0;
         }
     }
+
 
 
 });

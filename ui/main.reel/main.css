@@ -17,7 +17,6 @@
 }
 
 .counter{
-	/*height:1.5em;*/
 	display:inline-block;
 }
 
@@ -57,12 +56,7 @@
 }
 
 .computer-bar{
-/*	margin:0 auto;
-	text-align:center;*/
-	/*position: absolute;
-	bottom: 30%;
-	left: 50%;
-	transform: translateX(-50%);*/
+
 }
 
 .action-panel{

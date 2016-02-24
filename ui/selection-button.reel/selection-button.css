@@ -18,11 +18,10 @@
 	display: inline-block;
 	box-sizing: border-box;
 	padding: 20px;
-	width: 85px;
-	height: 85px;
+	width: 100px;
+	height: 100px;
 	margin-bottom: 5px;
 	border-radius: 50%;
-	/*color: rgba(0,0,0,.3);*/
 	transition: color .25s ease-in-out;
 	background: rgba(0,0,0,.4);
 	opacity: .7;

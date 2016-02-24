@@ -14,7 +14,9 @@
                 },
                 "bindings": {
                     "selection": {"<-": "@playerBar.selection.name"},
-                    "winCount": {"<->": "@playerBar.winCount"}   
+                    "winCount": {"<->": "@playerBar.winCount"},
+                    "totalCount": {"<->": "@playerBar.totalCount"},
+                    "winPercent": {"<->": "@playerBar.winPercent"}
                 }
             },
 
@@ -34,12 +36,12 @@
             },
 
             "counter": {
-                "prototype": "digit/ui/badge.reel",
+                "prototype": "digit/ui/text.reel",
                 "properties": {
                     "element": {"#": "counter"}
                 },
                 "bindings": {
-                    "value": {"<-": "@owner.winCount"}
+                    "value": {"<-": "@owner.winCount + ' wins out of ' + @owner.totalCount + ' - ' + @owner.winPercent + '%'"}
                 }
             },
 
@@ -86,10 +88,8 @@
             "computerText": {
                 "prototype": "montage/ui/text.reel",
                 "properties": {
-                    "element": {"#": "computerText"}
-                },
-                "bindings": {
-                    "value": {"<-": "@playerBar.computer"}
+                    "element": {"#": "computerText"},
+                    "value": "Computer"
                 }
             },
 
@@ -110,7 +110,7 @@
         <div data-montage-id="svg-icons" class="svg-icons"></div>
         <div data-montage-id="title" class="title"></div>
         <div class="count-box">
-            <span data-montage-id="counter" class="counter"></span>wins
+            <div data-montage-id="counter" class="counter"></div>
             <div data-montage-id="resetButton" class="resetButton"></div>
         </div>
         <div data-montage-id="playerText" class="playerText"></div>
