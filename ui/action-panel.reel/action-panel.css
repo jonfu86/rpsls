@@ -3,8 +3,17 @@
 }
 
 .result {
-font-size: 32px;
-  line-height: 100px;
-  font-weight: 400;
-  font-family: 'Roboto';
+    font-size: 32px;
+    line-height: 100px;
+    font-weight: 400;
+    font-family: 'Roboto';
+    padding:0 5px;
+}
+
+@media (max-width: 640px) {
+    .result {
+        font-size:4vw;
+        line-height:normal;
+    }
+
 }

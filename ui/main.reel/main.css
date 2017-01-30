@@ -3,17 +3,16 @@
 .title{
 	margin:2% auto;
 	text-align:center;
-	font-size: 36px;
+	font-size: 36px;  
 	line-height: 52px;
-	font-weight: 400;
+	font-weight: 800;
 	font-family: 'Roboto';
 	-webkit-font-smoothing: antialiased;
 }
 
 .count-box{
-	position:absolute;
-	top:15%;
-	right:12%;
+    margin:2% auto;
+    text-align:center;
 }
 
 .counter{
@@ -85,4 +84,22 @@
 
 .svg-icons{
 	display:none;
+}
+
+@media (max-width: 640px) {
+    .title {
+        font-size: 4.5vw;
+        margin:0 auto;
+        line-height:normal;
+    }
+    .playerText, .computerText {
+        font-size: 4vw;
+        line-height: normal;
+        margin: 2px auto;
+    }
+    .action-panel {
+        height:34px;
+        margin:1.5% auto;
+        text-align:center;
+    }
 }
